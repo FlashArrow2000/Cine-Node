@@ -1,0 +1,59 @@
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body{
+    background-color: darkorange;
+}
+.contiene-todo{
+    position: relative;
+}
+.contiene-butacas1{
+    position: relative;
+    background-color: white;
+}
+.butaca-contenedora-H{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-G{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-F{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-E{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-D{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-C{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-B{
+    position: relative;
+    display: inline-flex;
+}
+.butaca-contenedora-A{
+    position: relative;
+    display: inline-flex;
+}
+.butaca{
+    display: inline-block;
+    padding-left: 55px;
+}
+.filas {
+    padding: 5px;
+    display: block;
+}
+span{
+    position: relative;
+    padding-top: -1px;
+}

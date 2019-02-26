@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="calendario.css">
+	<title></title>
+</head>
+<body onload="cargarpeliculasdelmesyanno()">
+<table>
+  <summary><strong>Febrero</strong> 2019</summary>
+  <thead>
+    <tr>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+      <span class="date" id="enero27">27</span>
+    </td>
+    <td>
+      <span class="date" id="enero28">28</span>
+    </td>
+    <td>
+      <span class="date" id="enero29">29</span>
+    </td>
+    <td>
+      <span class="date" id="enero30">30</span>
+    </td>
+    <td>
+      <span class="date" id="enero31">31</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero1">Febrero 1</span>
+    </td>
+    <td class="weekend">
+      <span class="febrero2">2</span>
+    </td>
+  </tr>
+  <tr class="previous-week">
+    <td>
+      <span class="date" id="febrero3">3</span>
+    </td>
+    <td>
+      <span class="date" id="febrero4">4</span>
+    </td>
+    <td>
+      <span class="date" id="febrero5">5</span>
+    </td>
+    <td>
+      <span class="date" id="febrero6">6</span>
+    </td>
+    <td>
+      <span class="date" id="febrero7">7</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero8">8</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero9">9</span>
+    </td>
+  </tr>
+  <tr class="current-week">
+    <td>
+      <span class="date" id="febrero10">10</span>
+    </td>
+    <td>
+      <span class="date" id="febrero11">11</span>
+    </td>
+    <td>
+      <span class="date" id="febrero12">12</span>
+    </td>
+    <td>
+      <span class="date" id="febrero13">13</span>
+    </td>
+    <td class="current-day">
+      <span class="date" id="febrero14">14</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero15">15</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero16">16</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="date" id="febrero17">17</span>
+    </td>
+    <td>
+      <span class="date" id="febrero18">18</span>
+    </td>
+    <td>
+      <span class="date" id="febrero19">19</span>
+    </td>
+    <td>
+      <span class="date" id="febrero20">20</span>
+    </td>
+    <td>
+      <span class="date" id="febrero21">21</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero22">22</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="febrero23">23</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="date" id="febrero24">24</span>
+    </td>
+    <td>
+      <span class="date" id="febrero25">25</span>
+    </td>
+    <td>
+      <span class="date" id="febrero26">26</span>
+    </td>
+    <td>
+      <span class="date" id="febrero27">27</span>
+    </td>
+    <td>
+      <span class="date" id="febrero28">28</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="marzo1">Marzo 1</span>
+    </td>
+    <td class="weekend">
+      <span class="date" id="marzo2">2</span>
+    </td>
+  </tr>
+</table>
+    <div class="caja">
+    <span id="mesactual" value="2" style="color: white">2</span>
+    <span id="annoactual" value="2019" style="color: white">2019</span>
+    </div>
+<script src="../clasepeliculafrontend.js"></script>
+<script>
+    function agregaimgdepeliculaaldiv(imgenbase64,iddeldiv,iddelapelicula)
+    
+    {
+        document.getElementById('febrero'+iddeldiv).innerHTML += "<img src='"+imgenbase64+"' height='42' width='42' id= '"+iddelapelicula+"' onclick='cargataquilla('"+iddelapelicula+"')' class='img'>"
+    }
+    
+    function cargarpeliculasdelmesyanno()
+    {
+        let clasepeliculainstanciada = new _Pelicula();
+               clasepeliculainstanciada.peliculaspormesyanno(document.getElementById("mesactual").innerHTML,document.getElementById("annoactual").innerHTML).then(function(response) {
+                   
+ for(var elemento in response)
+     {
+         var fechadelapeliculaactual = new Date(response[elemento].FECHA);
+         agregaimgdepeliculaaldiv(response[elemento].IMAGEN,fechadelapeliculaactual.getDate(),response[elemento]._id);
+         
+     }
+                   
+                   
+                   
+                   
+}, function(error) {
+ console.log(error);
+});
+        
+        
+    }
+</script>
+</body>
+</html>
